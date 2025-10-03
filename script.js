@@ -8,28 +8,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Update header color based on current section
-function updateHeaderColor() {
-    const header = document.querySelector('header');
-    const sections = document.querySelectorAll('section');
-    const scrollPosition = window.scrollY + 150; // Offset for header height
+// Hamburger menu functionality
+const hamburgerMenu = document.querySelector('.mobile-menu');
+const navMenu = document.querySelector('.nav-menu');
 
-    // Remove all section classes
-    header.classList.remove('section-home', 'section-about', 'section-skills', 'section-contact');
+hamburgerMenu.addEventListener('click', function() {
+    this.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
 
-    let currentSection = 'home'; // Default
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionBottom = sectionTop + section.offsetHeight;
-
-        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-            currentSection = section.id;
-        }
+// Close mobile menu when clicking on navigation links
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', function() {
+        hamburgerMenu.classList.remove('active');
+        navMenu.classList.remove('active');
     });
-
-    header.classList.add(`section-${currentSection}`);
-}
-
-window.addEventListener('scroll', updateHeaderColor);
-window.addEventListener('load', updateHeaderColor);
+});
