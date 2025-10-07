@@ -141,26 +141,6 @@ section {
     background: var(--background-light);
 }
 
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 50px;
-    align-items: center;
-}
-
-.profile-img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-size: 2rem;
-    margin: 0 auto;
-}
-
 .skills {
     background: var(--white);
 }
@@ -192,22 +172,13 @@ section {
 }
 
 .contact-info {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    margin-top: 50px;
-}
-
-.contact-item {
-    text-align: center;
-}
-
-.contact-item a {
+    display: inline-block;
+    margin-top: 40px;
     color: var(--white);
     text-decoration: none;
 }
 
-.contact-item a:hover {
+.contact-info:hover {
     opacity: 0.8;
 }
 
