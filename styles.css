@@ -184,13 +184,18 @@ section {
     transition: all 0.3s ease;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     border: 2px solid transparent;
-    text-decoration: none;
     color: var(--text-dark);
 }
 
-.customer-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(30, 60, 114, 0.15);
+.customer-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.customer-link:hover {
+    transform: scale(1.05);
 }
 
 .customer-header {
@@ -204,14 +209,63 @@ section {
 .customer-logo {
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--primary-dark);
     letter-spacing: 1px;
     margin: 0;
 }
 
 .customer-logo-img {
-    max-width: 50px;
+    max-height: 50px;
     height: auto;
+}
+
+.customer-info {
+    min-height: 100px;
+}
+
+.expand-toggle {
+    background: var(--primary-light);
+    color: var(--white);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 20px auto;
+    font-weight: 500;
+}
+
+.expand-toggle:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 60, 114, 0.3);
+}
+
+.expand-icon {
+    font-size: 1.3rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.expand-toggle.active .expand-icon {
+    transform: rotate(45deg);
+}
+
+.customer-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.3s ease;
+    opacity: 0;
+    text-align: left;
+}
+
+.customer-details.expanded {
+    max-height: 1000px;
+    opacity: 1;
+    margin-top: 20px;
 }
 
 .contact {
@@ -260,8 +314,7 @@ section {
     }
 
     .customers-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 20px;
+        grid-template-columns: 1fr;
     }
 
     .customer-card {
